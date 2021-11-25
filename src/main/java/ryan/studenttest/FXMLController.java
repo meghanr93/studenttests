@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,7 +20,7 @@ import javafx.scene.input.MouseEvent;
 public class FXMLController implements Initializable {
     
     @FXML
-    private Button btnList;
+    private Label lblList;
     @FXML
     private TextField txtFirstName;
     @FXML
@@ -34,14 +36,21 @@ public class FXMLController implements Initializable {
     @FXML
     private Button btnAdd;
     @FXML
+    private Button btnList;
+    @FXML
     private Button btnStudentAverage;
     @FXML
     private Button btnCourseAverage;
     @FXML
     private Button btnExit;
+    @FXML
+    private Button btnClear;
    
     double buttonSetHeight=0;
     double buttonSetWidth=0;
+    
+    String studentgrade[][]=new String[15][6];
+    int student=-1;
     
     @FXML
     void btnHover(MouseEvent event) {
@@ -68,12 +77,30 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnListClick(ActionEvent event) {
-
+        lblList.setText("Names               Test Scores");
+        for( int i=0; i < 15; i++) {
+               lblList.setText(lblList.getText()+"\n" + studentgrade[i][0]+ " " + studentgrade[i][1]+ "  " +"1: "+ studentgrade[i][2]+ "  "+"2: " + studentgrade[i][3]+ "  "+"3: " + studentgrade[i][4]+ "  "+"4: " + studentgrade[i][5]);
+           }
     }
     
     @FXML
     void btnAddClick(ActionEvent event) {
-
+        if (!txtFirstName.getText().equals("")&&!txtLastName.getText().equals("")&&!txtTest1.getText().equals("")&&!txtTest2.getText().equals("")&&!txtTest3.getText().equals("")&&!txtTest4.getText().equals("")){
+            student++;
+            studentgrade[student][0]=txtFirstName.getText();
+            studentgrade[student][1]=txtLastName.getText();
+            studentgrade[student][2]=txtTest1.getText();
+            studentgrade[student][3]=txtTest2.getText();
+            studentgrade[student][4]=txtTest3.getText();
+            studentgrade[student][5]=txtTest4.getText();
+        }
+        else {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("One or more text fields are empty.");
+            alert.showAndWait();
+        }
     }
     
     @FXML
@@ -84,6 +111,16 @@ public class FXMLController implements Initializable {
     @FXML
     void btnCourseAverageClick(ActionEvent event) {
 
+    }
+    
+    @FXML
+    void btnClearClick(ActionEvent event) {
+        student=-1;
+        for( int i=0; i < 15; i++) {
+           for( int j=0; j<6; j++) {
+            studentgrade[i][j]=null;
+           }
+        }
     }
 
     @FXML

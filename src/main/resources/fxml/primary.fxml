@@ -8,7 +8,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="650.0" style="-fx-background-color: black;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ryan.studenttest.FXMLController">
    <children>
-      <Label fx:id="lblList" alignment="TOP_CENTER" layoutX="200.0" layoutY="285.0" prefHeight="400.0" prefWidth="300.0" styleClass="windows7" />
+      <Label fx:id="lblList" alignment="TOP_CENTER" layoutX="25.0" layoutY="302.0" prefHeight="420.0" prefWidth="600.0" styleClass="windows7">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
       <Button fx:id="btnList" layoutX="320.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnListClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="60.0" text="List">
          <font>
             <Font size="16.0" />
@@ -65,7 +69,12 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnExit" layoutX="440.0" layoutY="245.0" mnemonicParsing="false" onAction="#btnExitClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="60.0" text="Exit">
+      <Button fx:id="btnExit" layoutX="529.0" layoutY="245.0" mnemonicParsing="false" onAction="#btnExitClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="60.0" text="Exit">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnClear" layoutX="320.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnClearClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="60.0" text="Clear">
          <font>
             <Font size="16.0" />
          </font>
