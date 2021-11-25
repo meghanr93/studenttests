@@ -2,11 +2,73 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: black;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ryan.studenttest.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="650.0" style="-fx-background-color: black;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ryan.studenttest.FXMLController">
    <children>
-      <Label fx:id="lblList" alignment="TOP_CENTER" layoutX="150.0" layoutY="225.0" prefHeight="250.0" prefWidth="200.0" styleClass="windows7" />
-      <Button fx:id="btnList" layoutX="220.0" layoutY="179.0" mnemonicParsing="false" onAction="#btnListClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="30.0" prefWidth="60.0" text="List" />
+      <Label fx:id="lblList" alignment="TOP_CENTER" layoutX="200.0" layoutY="285.0" prefHeight="400.0" prefWidth="300.0" styleClass="windows7" />
+      <Button fx:id="btnList" layoutX="320.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnListClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="60.0" text="List">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtFirstName" layoutX="139.0" layoutY="48.0" prefHeight="31.0" prefWidth="149.0" />
+      <Label layoutX="54.0" layoutY="51.0" prefHeight="25.0" prefWidth="85.0" text="First Name:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtLastName" layoutX="440.0" layoutY="48.0" prefHeight="31.0" prefWidth="149.0" />
+      <Label layoutX="355.0" layoutY="51.0" prefHeight="25.0" prefWidth="85.0" text="Last Name:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtTest1" layoutX="104.0" layoutY="117.0" prefHeight="20.0" prefWidth="60.0" />
+      <Label layoutX="54.0" layoutY="116.0" prefHeight="25.0" prefWidth="50.0" text="Test 1:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="157.0" prefHeight="25.0" prefWidth="50.0" text="Test 2:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="197.0" prefHeight="25.0" prefWidth="50.0" text="Test 3:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="237.0" prefHeight="25.0" prefWidth="50.0" text="Test 4:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtTest2" layoutX="104.0" layoutY="157.0" prefHeight="20.0" prefWidth="60.0" />
+      <TextField fx:id="txtTest3" layoutX="104.0" layoutY="197.0" prefHeight="20.0" prefWidth="60.0" />
+      <TextField fx:id="txtTest4" layoutX="104.0" layoutY="237.0" prefHeight="20.0" prefWidth="60.0" />
+      <Button fx:id="btnAdd" layoutX="320.0" layoutY="125.0" mnemonicParsing="false" onAction="#btnAddClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="60.0" text="Add">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnStudentAverage" layoutX="440.0" layoutY="125.0" mnemonicParsing="false" onAction="#btnStudentAverageClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="35.0" prefWidth="149.0" text="Student Average">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCourseAverage" layoutX="440.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnCourseAverageClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="35.0" prefWidth="149.0" text="Course Averages">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnExit" layoutX="440.0" layoutY="245.0" mnemonicParsing="false" onAction="#btnExitClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="25.0" prefWidth="60.0" text="Exit">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
