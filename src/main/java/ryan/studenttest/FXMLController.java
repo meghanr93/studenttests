@@ -78,49 +78,83 @@ public class FXMLController implements Initializable {
     @FXML
     void btnListClick(ActionEvent event) {
         lblList.setText("Names               Test Scores");
-        for( int i=0; i < 15; i++) {
+        for( int i=0; i < student+1; i++) {
                lblList.setText(lblList.getText()+"\n" + studentgrade[i][0]+ " " + studentgrade[i][1]+ "  " +"1: "+ studentgrade[i][2]+ "  "+"2: " + studentgrade[i][3]+ "  "+"3: " + studentgrade[i][4]+ "  "+"4: " + studentgrade[i][5]);
            }
     }
     
     @FXML
     void btnAddClick(ActionEvent event) {
-        if (!txtFirstName.getText().equals("")&&!txtLastName.getText().equals("")&&!txtTest1.getText().equals("")&&!txtTest2.getText().equals("")&&!txtTest3.getText().equals("")&&!txtTest4.getText().equals("")){
-            student++;
-            studentgrade[student][0]=txtFirstName.getText();
-            studentgrade[student][1]=txtLastName.getText();
-            studentgrade[student][2]=txtTest1.getText();
-            studentgrade[student][3]=txtTest2.getText();
-            studentgrade[student][4]=txtTest3.getText();
-            studentgrade[student][5]=txtTest4.getText();
+        if (student!=14){
+            if (!txtFirstName.getText().equals("")&&!txtLastName.getText().equals("")&&!txtTest1.getText().equals("")&&!txtTest2.getText().equals("")&&!txtTest3.getText().equals("")&&!txtTest4.getText().equals("")){
+                student++;
+                studentgrade[student][0]=txtFirstName.getText();
+                studentgrade[student][1]=txtLastName.getText();
+                studentgrade[student][2]=txtTest1.getText();
+                studentgrade[student][3]=txtTest2.getText();
+                studentgrade[student][4]=txtTest3.getText();
+                studentgrade[student][5]=txtTest4.getText();
+            }
+            else {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("One or more text fields are empty.");
+                alert.showAndWait();
+            }
         }
-        else {
+        else{
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("One or more text fields are empty.");
+            alert.setContentText("Student list is full! Clear list to add more students.");
             alert.showAndWait();
         }
     }
     
     @FXML
     void btnStudentAverageClick(ActionEvent event) {
-
+        if (student==-1){
+            noStudents();
+        }
+        else{
+ 
+        }
     }
 
     @FXML
     void btnCourseAverageClick(ActionEvent event) {
-
+        double courseaverage=0;
+        if (student==-1){
+            noStudents();
+        }
+        else{
+            for( int i=0; i < student; i++) {
+                courseaverage=courseaverage+(Double.parseDouble(studentgrade[i][2]+studentgrade[i][3]+studentgrade[i][4]+ studentgrade[i][5]));
+            }
+        lblList.setText(""+courseaverage/(student*4));
+        }
+    }
+    
+    void noStudents(){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText("No students in the list.");
+        alert.showAndWait();
     }
     
     @FXML
     void btnClearClick(ActionEvent event) {
         student=-1;
         for( int i=0; i < 15; i++) {
-           for( int j=0; j<6; j++) {
-            studentgrade[i][j]=null;
-           }
-        }
+        studentgrade[i][0]=("No");    
+        studentgrade[i][1]=("Name");
+        studentgrade[i][2]=("0");
+        studentgrade[i][3]=("0");
+        studentgrade[i][4]=("0");
+        studentgrade[i][5]=("0");
+    }
     }
 
     @FXML
@@ -130,6 +164,6 @@ public class FXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    //TODO
+        lblList.setText("Names               Test Scores");
     }    
 }
