@@ -81,7 +81,7 @@ public class FXMLController implements Initializable {
     void btnListClick(ActionEvent event) {
         lblList.setText("Names               Test Scores");
         for( int i=0; i < student+1; i++) {
-               lblList.setText(lblList.getText()+"\n" +"Student Number "+(i+1)+":  "+ studentgrade[i][0]+ " " + studentgrade[i][1]+ "  " +"1:  "+ studentgrade[i][2]+ "  "+"2:  " + studentgrade[i][3]+ "  "+"3:  " + studentgrade[i][4]+ "  "+"4:  " + studentgrade[i][5]);
+               lblList.setText(lblList.getText()+"\n" +"Student Number "+(i+1)+":  "+ studentgrade[i][0]+ " " + studentgrade[i][1]+ "   " + studentgrade[i][2]+ "   "+ studentgrade[i][3]+ "   "+ studentgrade[i][4]+ "   "+ studentgrade[i][5]);
            }
     }
     
@@ -121,15 +121,18 @@ public class FXMLController implements Initializable {
         }
         else{
             int studentnum;
+            int studentaverage;
             TextInputDialog dialog = new TextInputDialog("");
             dialog.setTitle("Student Test Score Average");
             dialog.setHeaderText("Input student number for their test scores average (1-15)");
             dialog.setContentText("Student Number Here:");
             Optional<String> result = dialog.showAndWait();
             studentnum=Integer.parseInt(dialog.getEditor().getText());
-            if ((studentnum>0)&&(studentnum<16)){
-                int i = studentnum;
-                lblList.setText((Integer.parseInt(studentgrade[i][2]+studentgrade[i][3]+studentgrade[i][4]+ studentgrade[i][5])/4));
+            if ((studentnum>=0)&&(studentnum<16)){
+                int i = (studentnum-1);
+                studentaverage=(Integer.parseInt(studentgrade[i][2])+Integer.parseInt(studentgrade[i][3])+Integer.parseInt(studentgrade[i][4])+ Integer.parseInt(studentgrade[i][5]))/4;
+                lblList.setText(""+studentaverage);
+                
             }
             else{
                 Alert alert = new Alert(AlertType.INFORMATION);
@@ -149,9 +152,9 @@ public class FXMLController implements Initializable {
         }
         else{
             for( int i=0; i < student+1; i++) {
-                courseaverage=courseaverage+(Integer.parseInt(studentgrade[i][2]+studentgrade[i][3]+studentgrade[i][4]+ studentgrade[i][5]));
+                courseaverage=courseaverage+(Integer.parseInt(studentgrade[i][2])+Integer.parseInt(studentgrade[i][3])+Integer.parseInt(studentgrade[i][4])+ Integer.parseInt(studentgrade[i][5]));
             }
-        lblList.setText(""+courseaverage/(student*4));
+        lblList.setText(""+courseaverage/((student+1)*4));
         }
     }
     
