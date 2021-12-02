@@ -53,6 +53,10 @@ public class FXMLController implements Initializable {
     
     String studentgrade[][]=new String[15][6];
     int student=-1;
+    int test1;
+    int test2;
+    int test3;
+    int test4;
     
     @FXML
     void btnHover(MouseEvent event) {
@@ -87,8 +91,28 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnAddClick(ActionEvent event) {
+        try{
+        test1 = Integer.parseInt(txtTest1.getText());
+        test2 = Integer.parseInt(txtTest2.getText());
+        test3 = Integer.parseInt(txtTest3.getText());
+        test4 = Integer.parseInt(txtTest4.getText());
+        }
+        catch(Exception ex){
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Test score numbers invalid.");
+            alert.showAndWait();
+        }
         if (student!=14){
-            if (!txtFirstName.getText().equals("")&&!txtLastName.getText().equals("")&&!txtTest1.getText().equals("")&&!txtTest2.getText().equals("")&&!txtTest3.getText().equals("")&&!txtTest4.getText().equals("")){
+            if (txtFirstName.getText().equals("")||txtLastName.getText().equals("")||txtTest1.getText().equals("")||txtTest2.getText().equals("")||txtTest3.getText().equals("")||txtTest4.getText().equals("")){
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("One or more text fields are empty.");
+                alert.showAndWait();
+            }
+            else if ((test1>=0)&&(test1<=100)&&(test2>=0)&&(test2<=100)&&(test3>=0)&&(test3<=100)&&(test4>=0)&&(test4<=100)){
                 student++;
                 studentgrade[student][0]=txtFirstName.getText();
                 studentgrade[student][1]=txtLastName.getText();
@@ -101,11 +125,11 @@ public class FXMLController implements Initializable {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);
-                alert.setContentText("One or more text fields are empty.");
+                alert.setContentText("One or more test scores are not numbers from 0-100.");
                 alert.showAndWait();
-            }
+                        }
         }
-        else{
+        else {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error");
             alert.setHeaderText(null);
