@@ -83,6 +83,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnListClick(ActionEvent event) {
+        /* Lists students and student grades. */
         lblList.setText("Names               Test Scores");
         for( int i=0; i < student+1; i++) {
                lblList.setText(lblList.getText()+"\n" +"Student Number "+(i+1)+":  "+ studentgrade[i][0]+ " " + studentgrade[i][1]+ "   " + studentgrade[i][2]+ "   "+ studentgrade[i][3]+ "   "+ studentgrade[i][4]+ "   "+ studentgrade[i][5]);
@@ -91,6 +92,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnAddClick(ActionEvent event) {
+        /* Adds a student to the list, taking the text inputted from the text fields. */
         try{
         test1 = Integer.parseInt(txtTest1.getText());
         test2 = Integer.parseInt(txtTest2.getText());
@@ -140,6 +142,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnStudentAverageClick(ActionEvent event) {
+        /* Takes the four test scores of a student and gets the average of all of them. */
         if (student==-1){
             noStudents();
         }
@@ -170,6 +173,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     void btnCourseAverageClick(ActionEvent event) {
+        /* Takes the test scores of all students and finds the average. */
         int courseaverage=0;
         if (student==-1){
             noStudents();
@@ -183,6 +187,7 @@ public class FXMLController implements Initializable {
     }
     
     void noStudents(){
+        /* Alert Error if there are no students in list. */
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Error");
         alert.setHeaderText(null);
@@ -192,6 +197,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnClearClick(ActionEvent event) {
+        /* Clears student list. */
         student=-1;
         for( int i=0; i < 15; i++) {
         studentgrade[i][0]=("No");    
